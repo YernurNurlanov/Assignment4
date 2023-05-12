@@ -16,9 +16,15 @@ public class MyHashTable<K, V>{
     private int size;
     public MyHashTable(){
         chainArray = new HashNode[M];
+        size = 0;
     }
     public MyHashTable(int M){
         this.M = M;
         chainArray = new HashNode[M];
+        size = 0;
     }
+    private int hash(K key){
+        return key.hashCode() % M;
+    }
+
 }
