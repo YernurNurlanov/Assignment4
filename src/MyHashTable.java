@@ -23,6 +23,9 @@ public class MyHashTable<K, V>{
         chainArray = new HashNode[M];
         size = 0;
     }
+    public int getSize(){
+        return size;
+    }
     private int hash(K key){
         return key.hashCode() % M;
     }
@@ -78,5 +81,17 @@ public class MyHashTable<K, V>{
             curr = curr.next;
         }
         return null;
+    }
+    public boolean contains(V value){
+        for (int i = 0; i < M; i++) {
+            HashNode<K, V> curr = chainArray[i];
+            while (curr != null) {
+                if (curr.value.equals(value)) {
+                    return true;
+                }
+                curr = curr.next;
+            }
+        }
+        return false;
     }
 }
