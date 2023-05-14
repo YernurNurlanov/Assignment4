@@ -118,4 +118,16 @@ public class MyHashTable<K, V>{
         }
         return null;
     }
+    // Prints chain sizes
+    public void chainSizes() {
+        for (int i = 0; i < M; i++) {
+            int bucket = 0;
+            HashNode<K, V> curr = chainArray[i];
+            while (curr != null) {
+                bucket++;
+                curr = curr.next;
+            }
+            System.out.println(i + ": " + bucket);
+        }
+    }
 }
