@@ -130,4 +130,17 @@ public class MyHashTable<K, V>{
             System.out.println(i + ": " + bucket);
         }
     }
+    public void replace(K key, V oldValue, V newValue){
+        for (int i = 0; i < M; i++){
+            HashNode<K, V> curr = chainArray[i];
+                while(curr != null){
+                    if(curr.key.equals(key)) {
+                        if (curr.value.equals(oldValue)) {
+                            curr.value = newValue;
+                        }
+                    }
+                    curr = curr.next;
+                }
+        }
+    }
 }

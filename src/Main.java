@@ -8,6 +8,14 @@ public class Main {
             table.put(new MyTestingClass(id), "Student " + i);
         }
         table.chainSizes();
+        System.out.println("Start testing replace() method");
+        MyHashTable<Object, Object> Table = new MyHashTable<Object, Object>();
+        Table.put(1,123);
+        Table.put(2,"///");
+        Table.put(3,true);
+        Table.replace(2, "///", 1234567);
+        System.out.println(Table.contains(1234567));
+        Table.chainSizes();
     }
 }
 class MyTestingClass {
